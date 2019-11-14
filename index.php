@@ -2,5 +2,10 @@
 
 require 'core/bootstrap.php';
 
-require 'views/index.view.php';
+$router = new Router();
+require 'routes.php';
+
+$url = trim($_SERVER['REQUEST_URI'], '/');
+//var_dump($url);
+require $router->direct($url);
 
