@@ -1,3 +1,3 @@
 <?php
 
-$router->get('home', 'controllers/Home.php');
+$router->get('home', 'PagesController@home');

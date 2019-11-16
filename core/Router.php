@@ -21,10 +21,13 @@ class Router{
     {
         if(array_key_exists($url, $this->routes[$requestMethod]))
         {
-            return $this->routes[$requestMethod][$url];
+            $arr = explode('@', $this->routes[$requestMethod][$url]);
+            $controller = $arr[0];
+            $action = $arr[1];
+            return $this->callAction($controller, $action);
         }
 
-        throw new Exception('No route defined for this URL.');
+        throw new Exception("No route defined for {$url} URL!");
     }
 
     public static function load($file)
@@ -32,6 +35,18 @@ class Router{
         $router = new static;
         require $file;
         return $router;
+    }
+
+    protected function callAction($controller, $action)
+    {
+        $controller = new $controller;
+
+        if(method_exists($controller, $action))
+        {
+            return $controller->$action();
+        }
+
+        throw new Exception("Method {$action} does not exist in {$controller}!");
     }
 
 }
