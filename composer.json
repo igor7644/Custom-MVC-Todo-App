@@ -4,6 +4,10 @@
 
     "classmap": [
       "./"
+    ],
+
+    "files": [
+      "./helpers.php"
     ]
 
   }

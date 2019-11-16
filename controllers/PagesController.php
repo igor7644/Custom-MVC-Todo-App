@@ -4,7 +4,7 @@ class PagesController{
 
     public function home()
     {
-        require 'views/index.view.php';
+        return view('index');
     }
 
 }
