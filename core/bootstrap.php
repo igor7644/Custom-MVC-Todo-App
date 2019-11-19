@@ -2,6 +2,9 @@
 
 namespace App\Core;
 use App\Core\Database\Connection;
+use App\Core\Database\QueryBuilder;
 
 $config = require 'config.php';
-$pdo = Connection::make($config['database']);
+$database = new QueryBuilder(Connection::make($config['database']));
+
+
