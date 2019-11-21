@@ -1,4 +1,9 @@
+<html>
+<body>
 
+<?php foreach ($tasks as $task) : ?>
+    <h3><?= $task->title ?></h3>
+<?php endforeach; ?>
 
-<h1>Welcome</h1>
-
+</body>
+</html>
