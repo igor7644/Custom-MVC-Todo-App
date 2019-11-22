@@ -21,7 +21,7 @@ class TasksController{
             'complited' => false
         ]);
 
-        header('Location: /home');
+        redirect('home');
     }
 
 }

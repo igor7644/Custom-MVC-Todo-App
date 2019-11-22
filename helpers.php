@@ -6,3 +6,8 @@ function dd($data)
     die(var_dump($data));
     echo '</pre>';
 }
+
+function redirect(string $path)
+{
+    header("Location: /$path");
+}
