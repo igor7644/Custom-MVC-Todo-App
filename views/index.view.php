@@ -22,10 +22,18 @@
                             <h6 class="mt-2"><?= $task->title ?></h6>
                         </div>
                         <div class="col-md-6 text-right">
-                            <form>
-                                <button type="submit" class="btn btn-light">Completed</button>
-                                <button type="submit" class="btn btn-light">Delete</button>
-                            </form>
+                            <div class="row ml-5">
+                                <div class="col-sm-6">
+                                    <form>
+                                        <button type="submit" value="<?= $task->id ?>" class="btn btn-light">Completed</button>
+                                    </form>
+                                </div>
+                                <div class="col-sm-6">
+                                    <form>
+                                        <button type="submit" value="<?= $task->id ?>" class="btn btn-light">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
