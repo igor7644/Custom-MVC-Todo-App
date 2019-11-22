@@ -19,7 +19,7 @@
                 <?php foreach ($tasks as $task) : ?>
                     <div class="row py-2">
                         <div class="col-md-6">
-                            <h6 class="mt-2"><?= $task->title ?></h6>
+                            <h5 class="mt-2"><mark style="background-color: #f9f9f9"><?= $task->title ?></mark></h5>
                         </div>
                         <div class="col-md-6 text-right">
                             <div class="row ml-5">
