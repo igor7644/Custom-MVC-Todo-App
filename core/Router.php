@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+
 class Router{
 
     public $routes = [
@@ -29,7 +30,7 @@ class Router{
             return $this->callAction($controller, $action);
         }
 
-        throw new Exception("No route defined for {$url} URL!");
+        throw new \Exception("No route defined for {$url} URL!");
     }
 
     public static function load($file)

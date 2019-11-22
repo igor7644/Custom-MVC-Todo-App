@@ -7,9 +7,9 @@
         <div class="row py-5">
             <div class="col-md-6 offset-md-3">
                 <h2 class="text-center py-5">TODO APP</h2>
-                <form>
+                <form method="POST" action="/tasks">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="What needs to be done"> &nbsp; &nbsp;
+                        <input type="text" name="task" class="form-control" placeholder="What needs to be done"> &nbsp; &nbsp;
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-dark">Submit</button>
                         </span>

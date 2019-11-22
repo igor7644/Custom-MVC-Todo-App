@@ -14,4 +14,14 @@ class TasksController{
         return Response::view('index', compact('tasks'));
     }
 
+    public function store()
+    {
+        Container::get('database')->create('tasks', [
+            'title' => $_POST['task'],
+            'complited' => false
+        ]);
+
+        header('Location: /home');
+    }
+
 }
