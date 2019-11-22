@@ -1,3 +1,3 @@
 <?php
 
-$router->get('home', 'PagesController@home');
+$router->get('home', 'TasksController@index');

@@ -6,12 +6,11 @@ use App\Core\Container;
 use App\Core\Database\QueryBuilder;
 use App\Core\Response;
 
-class PagesController{
+class TasksController{
 
-    public function home()
+    public function index()
     {
         $tasks = Container::get('database')->all('tasks');
-      //  $response = new Response();
         return Response::view('index', compact('tasks'));
     }
 
