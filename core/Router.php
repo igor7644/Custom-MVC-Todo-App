@@ -29,6 +29,23 @@ class Router{
             $action = $arr[1];
             return $this->callAction($controller, $action);
         }
+        else
+        {
+            foreach($this->routes[$requestMethod] as $key => $controllerAction)
+            {
+                $pattern = "@^".preg_replace('/{([a-zA-Z0-9]+)}/', '(?<$1>[a-zA-Z0-9\_\-]+)', $key)."$@";
+                preg_match($pattern, $url, $matches);
+                array_shift($matches);
+                if($matches)
+                {
+                    $params = $matches;
+                    $getAction = explode('@', $controllerAction);
+                    $controller = $getAction[0];
+                    $action = $getAction[1];
+                    return $this->callAction($controller, $action, $params);
+                }
+            }
+        }
 
         throw new \Exception("No route defined for {$url} URL!");
     }
@@ -40,14 +57,14 @@ class Router{
         return $router;
     }
 
-    protected function callAction($controller, $action)
+    protected function callAction($controller, $action, $params=[])
     {
         $controller = "App\\Controllers\\{$controller}";
         $controller = new $controller;
 
         if(method_exists($controller, $action))
         {
-            return $controller->$action();
+            return $controller->$action($params);
         }
 
         throw new Exception("Method {$action} does not exist in {$controller}!");
