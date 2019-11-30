@@ -18,7 +18,7 @@ class TasksController{
     {
         Container::get('database')->create('tasks', [
             'title' => $_POST['task'],
-            'complited' => false
+            'completed' => false
         ]);
 
         redirect('home');
