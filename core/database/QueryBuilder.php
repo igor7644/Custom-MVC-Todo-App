@@ -50,12 +50,12 @@ class QueryBuilder{
         }
     }
 
-    public function complete($task, $table)
+    public function complete($id, $table)
     {
         try
         {
             $statement = $this->pdo->prepare("update {$table} set completed = true where id = :id");
-            $statement->execute([':id' => $task]);
+            $statement->execute([':id' => $id]);
         } catch (Exception $e)
         {
             echo "Query didn't execute! Details: ".$e->getMessage();
