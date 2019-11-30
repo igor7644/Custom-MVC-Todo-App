@@ -34,7 +34,7 @@ class QueryBuilder{
             $statement->execute($parameters);
         } catch (Exception $e)
         {
-            die('Something went wrong!');
+            echo "Query didn't execute! Details: ".$e->getMessage();
         }
     }
 
@@ -42,11 +42,11 @@ class QueryBuilder{
     {
         try
         {
-            $statement = $this->pdo->prepare("delete from {$table} where id = :id");
+            $statement = $this->pdo->prepare("delete * from {$table} where id = :id");
             $statement->execute([':id' => $id]);
         } catch (Exception $e)
         {
-            die('Something went wrong!');
+            echo "Query didn't execute! Details: ".$e->getMessage();
         }
     }
 
