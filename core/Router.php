@@ -47,7 +47,7 @@ class Router{
             return $controller->$action($params);
         }
 
-        throw new Exception("Method {$action} does not exist in {$controller}!");
+        throw new \Exception("Method {$action} does not exist in {$controller}!");
     }
 
     private function routeWithoutParams($url, $requestMethod)

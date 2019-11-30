@@ -42,8 +42,20 @@ class QueryBuilder{
     {
         try
         {
-            $statement = $this->pdo->prepare("delete * from {$table} where id = :id");
+            $statement = $this->pdo->prepare("delete from {$table} where id = :id");
             $statement->execute([':id' => $id]);
+        } catch (Exception $e)
+        {
+            echo "Query didn't execute! Details: ".$e->getMessage();
+        }
+    }
+
+    public function complete($task, $table)
+    {
+        try
+        {
+            $statement = $this->pdo->prepare("update {$table} set complited = true where id = :id");
+            $statement->execute([':id' => $task]);
         } catch (Exception $e)
         {
             echo "Query didn't execute! Details: ".$e->getMessage();
