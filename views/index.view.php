@@ -17,9 +17,14 @@
                 </form>
 
                 <?php foreach ($tasks as $task) : ?>
+
                     <div class="row py-2">
                         <div class="col-md-6">
-                            <h5 class="mt-2"><mark style="background-color: #f9f9f9"><?= $task->title ?></mark></h5>
+                            <?php if($task->completed) : ?>
+                                <del><h5 class="mt-2"><mark style="background-color: #f9f9f9; color: #666666"><?= $task->title ?></mark></h5></del>
+                            <?php else: ?>
+                                <h5 class="mt-2"><mark style="background-color: #ececec"><?= $task->title ?></mark></h5>
+                            <?php endif; ?>
                         </div>
                         <div class="col-md-6 text-right">
                             <div class="row ml-5">
@@ -36,6 +41,7 @@
                             </div>
                         </div>
                     </div>
+
                 <?php endforeach; ?>
 
             </div>
