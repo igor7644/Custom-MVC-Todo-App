@@ -30,4 +30,10 @@ class TasksController{
         redirect('home');
     }
 
+    public function complete($task)
+    {
+        Container::get('database')->complete($task['task'], 'tasks');
+        redirect('home');
+    }
+
 }
