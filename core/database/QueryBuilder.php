@@ -54,7 +54,7 @@ class QueryBuilder{
     {
         try
         {
-            $statement = $this->pdo->prepare("update {$table} set complited = true where id = :id");
+            $statement = $this->pdo->prepare("update {$table} set completed = true where id = :id");
             $statement->execute([':id' => $task]);
         } catch (Exception $e)
         {
