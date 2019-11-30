@@ -24,4 +24,10 @@ class TasksController{
         redirect('home');
     }
 
+    public function delete($task)
+    {
+        Container::get('database')->delete($task['task'], 'tasks');
+        redirect('home');
+    }
+
 }
