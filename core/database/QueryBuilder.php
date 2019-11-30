@@ -40,12 +40,10 @@ class QueryBuilder{
 
     public function delete($id, $table)
     {
-        $sql = "delete * from {$table} where id = :id";
-
         try
         {
-            $statement = $this->pdo->prepare($sql);
-            $statement->execute(['id' => $id]);
+            $statement = $this->pdo->prepare("delete from {$table} where id = :id");
+            $statement->execute([':id' => $id]);
         } catch (Exception $e)
         {
             die('Something went wrong!');
