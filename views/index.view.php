@@ -30,8 +30,8 @@
                             <div class="row ml-5">
                                 <div class="col-sm-6">
                                     <?php if ($task->completed) : ?>
-                                        <div class="mr-4 mt-2">
-                                            <span class="pt-5">&#10003;</span>
+                                        <div class="mr-4">
+                                            <span style="font-size: 25px">&#10003;</span>
                                         </div>
                                     <?php else: ?>
                                         <form method="post" action="/task/<?= $task->id ?>/update">
