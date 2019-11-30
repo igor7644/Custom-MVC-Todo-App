@@ -29,9 +29,15 @@
                         <div class="col-md-6 text-right">
                             <div class="row ml-5">
                                 <div class="col-sm-6">
-                                    <form method="post" action="/task/<?= $task->id ?>/update">
-                                        <button type="submit" class="btn btn-light">Completed</button>
-                                    </form>
+                                    <?php if ($task->completed) : ?>
+                                        <div class="mr-4 mt-2">
+                                            <span class="pt-5">&#10003;</span>
+                                        </div>
+                                    <?php else: ?>
+                                        <form method="post" action="/task/<?= $task->id ?>/update">
+                                            <button type="submit" class="btn btn-light">Completed</button>
+                                        </form>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-sm-6">
                                     <form method="post" action="/task/<?= $task->id ?>/delete">
