@@ -22,6 +22,10 @@ class QueryBuilder{
 
     public function create($table, $parameters)
     {
+        if(empty($parameters['title']))
+        {
+            throw new ExceptionHandler("Input can't be empty!", 403, null);
+        }
         $sql = sprintf(
             'insert into %s (%s) values (%s)',
                     $table,
