@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Core\Database;
+use App\Core\ExceptionHandler;
 use PDO;
 
 class QueryBuilder{
@@ -32,9 +33,9 @@ class QueryBuilder{
         {
             $statement = $this->pdo->prepare($sql);
             $statement->execute($parameters);
-        } catch (Exception $e)
+        } catch (\ExceptionHandler $exception)
         {
-            echo "Query didn't execute! Details: ".$e->getMessage();
+            $exception->handle();
         }
     }
 
@@ -44,9 +45,9 @@ class QueryBuilder{
         {
             $statement = $this->pdo->prepare("delete from {$table} where id = :id");
             $statement->execute([':id' => $id]);
-        } catch (Exception $e)
+        } catch (\ExceptionHandler $exception)
         {
-            echo "Query didn't execute! Details: ".$e->getMessage();
+            $exception->handle();
         }
     }
 
@@ -56,9 +57,9 @@ class QueryBuilder{
         {
             $statement = $this->pdo->prepare("update {$table} set completed = true where id = :id");
             $statement->execute([':id' => $id]);
-        } catch (Exception $e)
+        } catch (\ExceptionHandler $exception)
         {
-            echo "Query didn't execute! Details: ".$e->getMessage();
+            $exception->handle();
         }
     }
 
