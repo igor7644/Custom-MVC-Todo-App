@@ -15,6 +15,7 @@ class ComposerStaticInit11e9fcffef859119b3cce034f394b17e
         'App\\Core\\Container' => __DIR__ . '/../..' . '/core/Container.php',
         'App\\Core\\Database\\Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
         'App\\Core\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',
+        'App\\Core\\ExceptionHandler' => __DIR__ . '/../..' . '/core/ExceptionHandler.php',
         'App\\Core\\Request' => __DIR__ . '/../..' . '/core/Request.php',
         'App\\Core\\Response' => __DIR__ . '/../..' . '/core/Response.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
