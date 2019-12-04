@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Core;
-
+use App\Core\ExceptionHandler;
 
 class Router{
 
@@ -47,7 +47,7 @@ class Router{
             return $controller->$action($params);
         }
 
-        throw new \Exception("Method {$action} does not exist in {$controller}!");
+        throw new ExceptionHandler("Method {$action} does not exist in {$controller}!", 404, null);
     }
 
     private function routeWithoutParams($url, $requestMethod)
