@@ -10,6 +10,8 @@
       "./helpers.php"
     ]
 
+  },
+  "require": {
+    "ext-json": "*"
   }
-
 }
